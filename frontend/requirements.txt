@@ -1,0 +1,2 @@
+flet[web]==0.26.0
+pydantic-settings==2.7.1

@@ -1,4 +1,5 @@
-fastapi
-uvicorn
-sqlalchemy
-aiosqlite
+fastapi==0.115.8
+uvicorn==0.34.0
+sqlalchemy==2.0.38
+asyncpg==0.29.0
+pydantic-settings==2.7.1
