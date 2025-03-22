@@ -3,7 +3,8 @@ import flet as ft
 
 from app.config import settings
 from app.views import (
-    HomeView
+    HomeView,
+    RectangleIntersectionView
 )
 
 
@@ -32,8 +33,8 @@ def main(page: ft.Page) -> None:
 
         if troute.match(HomeView.ROUTE):
             page.views.append(HomeView(page))
-        elif troute.match():
-            ...
+        elif troute.match(RectangleIntersectionView.ROUTE):
+            page.views.append(RectangleIntersectionView(page))
         else:
             print(f'- REDIRECT TO "{HomeView.ROUTE}"', end=" ")
             page.views.append(HomeView(page))

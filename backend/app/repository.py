@@ -3,6 +3,7 @@ from app.database import new_session, RectangleOrm, RectangleIntersectionOrm
 from app.schemas import (
     SRectangleAdd,
     SRectangle,
+    SRectangleIntersectionAdd
 )
 
 
@@ -82,10 +83,12 @@ class IntersectionRepository:
                 select(RectangleOrm).where(RectangleOrm.id.in_([r1_id, r2_id]))
             )
             rect_list = rects.scalars().all()
-            if len(rect_list) < 2:
+            if not rect_list:
                 return None
-
-            r1, r2 = rect_list
+            if len(rect_list) == 1:
+                r1, r2 = rect_list[0], rect_list[0]
+            else:
+                r1, r2 = rect_list
 
             area = cls._calculate_intersection_area(r1, r2)
             if area is None:

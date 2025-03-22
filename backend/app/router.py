@@ -22,9 +22,7 @@ router_rectangle = APIRouter(
 
 
 @router_rectangle.post('/')
-async def add_rectangle(
-    rectangle: Annotated[SRectangleAdd, Depends()],
-) -> SRectangleId:
+async def add_rectangle(rectangle: SRectangleAdd) -> SRectangleId:
     rectangle_id = await RectangleRepository.add_one(rectangle)
     return SRectangleId(rectangle_id=rectangle_id)
 
