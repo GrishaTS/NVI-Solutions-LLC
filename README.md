@@ -66,7 +66,10 @@ docker compose --env-file .env.dev up --build
 
 ---
 
-После запуска, backend и frontend будут доступы по адресам:  
-📄 [http://127.0.0.1:8000/docs](http://localhost:8000/docs)
+После запуска, backend и frontend будут доступы по адресам: 
+
+📄 [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
 📄 [http://localhost:3000](http://localhost:3000)
+
 ---
