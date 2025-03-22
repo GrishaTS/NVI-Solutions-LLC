@@ -31,13 +31,6 @@ class HomeView(BaseView):
                 readme_content = response.text
         except Exception as e:
             readme_content = f"Не удалось загрузить README.md: {e}"
-        try:
-            with httpx.Client(http1=True, headers={"User-Agent": "Mozilla/5.0"}) as client:
-                response = client.get("https://raw.githubusercontent.com/GrishaTS/NVI-Solutions-LLC/main/README.md")
-                response.raise_for_status()
-                project_content = response.text
-        except Exception as e:
-            project_content = f"Не удалось загрузить README.md: {e}"
         self.controls = [
             ft.Container(
                 content=ft.Column(
@@ -51,7 +44,6 @@ class HomeView(BaseView):
                             "Ссылка на проект",
                             url='https://github.com/GrishaTS/NVI-Solutions-LLC'
                         ),
-                        ft.Markdown(project_content, selectable=True),
                         ft.Divider(),
                         ft.TextButton(
                             "Ссылка на гит (очень прошу ознакомиться с проектами указанными в конце этого README.md)",
